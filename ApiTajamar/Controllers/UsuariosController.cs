@@ -23,7 +23,7 @@ namespace ApiTajamar.Controllers
         /// <summary>
         /// Obtiene todos los usuarios.
         /// </summary>
-        [Authorize]
+
         [HttpGet]
         public async Task<ActionResult<List<UsuarioEmpresa>>> GetUsuarios()
         {

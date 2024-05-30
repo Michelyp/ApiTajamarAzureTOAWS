@@ -13,10 +13,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 string connectionString = builder.Configuration.GetConnectionString("SqlAzure");
+
 builder.Services.AddTransient<RepositoryUsuarios>();
 builder.Services.AddTransient<RepositoryEmpresa>();
 builder.Services.AddTransient<RepositoryEntrevista>();
-builder.Services.AddDbContext<TajamarContext>(options => options.UseSqlServer(connectionString));
+//builder.Services.AddDbContext<TajamarContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddDbContext<TajamarContext>
+    (options => options.UseMySql(connectionString,
+    ServerVersion.AutoDetect(connectionString)));
+
 
 HelperActionServicesOAuth helper = new HelperActionServicesOAuth(builder.Configuration);
 builder.Services.AddSingleton<HelperActionServicesOAuth>(helper);

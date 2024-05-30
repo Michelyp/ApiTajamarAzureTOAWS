@@ -22,7 +22,7 @@ namespace ApiTajamar.Controllers
         /// <summary>
         /// Obtiene todas las empresas.
         /// </summary>
-        [Authorize]
+        
         [HttpGet]
         public async Task<ActionResult<List<Empresa>>> GetEmpresas()
         {
