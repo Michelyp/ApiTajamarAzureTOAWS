@@ -23,7 +23,6 @@ VALUES ('49df6d1a-98ae-4d49-ab22-ff8b31f60af6', 'javier.roca@tajamar365.com', 'J
 INSERT INTO AspNetUsers (Id, UserName, NormalizedUserName, Email, NormalizedEmail, EmailConfirmed, PasswordHash, SecurityStamp, ConcurrencyStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEnd, LockoutEnabled, AccessFailedCount) 
 VALUES ('bcc07d13-3d8b-4d0d-a308-675da508c1e5', 'javierroca.dev@outlook.com', 'JAVIERROCA.DEV@OUTLOOK.COM', 'javierroca.dev@outlook.com', 'JAVIERROCA.DEV@OUTLOOK.COM', 0, NULL, '4CB4JV7IGHGNO6FENRHGDME4FTMET3B3', '41480086-b2e1-4093-afef-61fe4df9cd1a', NULL, 0, 0, NULL, 1, 0);
 
-
 CREATE TABLE AspNetUserLogins (
     LoginProvider VARCHAR(128) NOT NULL,
     ProviderKey VARCHAR(128) NOT NULL,
@@ -32,12 +31,21 @@ CREATE TABLE AspNetUserLogins (
     PRIMARY KEY (LoginProvider, ProviderKey)
 ) ENGINE=InnoDB;
 
-
+select * from AspNetUserLogins;
 INSERT INTO AspNetUserLogins (LoginProvider, ProviderKey, ProviderDisplayName, UserId) 
 VALUES ('Microsoft', '18b49a4ba47ad8f6', 'Microsoft', 'bcc07d13-3d8b-4d0d-a308-675da508c1e5');
 
 INSERT INTO AspNetUserLogins (LoginProvider, ProviderKey, ProviderDisplayName, UserId) 
 VALUES ('Microsoft', 'ee55b5a5-59d1-41b7-82e9-cdf4e30dbee6', 'Microsoft', '49df6d1a-98ae-4d49-ab22-ff8b31f60af6');
+
+CREATE TABLE AspNetUserClaims (
+    Id INT NOT NULL AUTO_INCREMENT,
+    UserId VARCHAR(450) NOT NULL,
+    ClaimType TEXT NULL,
+    ClaimValue TEXT NULL,
+    PRIMARY KEY (Id)
+) ENGINE=InnoDB;
+
 
 CREATE TABLE `EMPRESAS` (
   `IDEMPRESA` int NOT NULL,
